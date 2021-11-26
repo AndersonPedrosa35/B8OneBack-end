@@ -7,6 +7,10 @@ app.use(express.json());
 
 const { PORT } = process.env;
 
+app.get('/', (req, res) => {
+  return res.status(200).send('Estamos conectados');
+});
+
 app.get('/products', productController.getAll);
 
 app.post('/products', (req, res) => {''});
