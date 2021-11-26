@@ -5,6 +5,10 @@ const getAll = async () => {
   return products;
 }
 
+const createProduct = async () => {
+  
+}
+
 module.exports = {
   getAll,
 }
