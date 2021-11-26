@@ -5,8 +5,15 @@ const getAll = async () => {
   return products;
 }
 
-const createProduct = async () => {
-  
+
+
+const validate = (body) => {
+  const { image, describe, title,
+    category, price, promotion } = body;
+}
+
+const createProduct = async (body) => {
+
 }
 
 module.exports = {
