@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/products', productController.getAll);
 
-app.post('/products', (req, res) => {''});
+app.post('/products', productController.createProduct);
 
 app.listen(PORT, () => {
   console.log(`Online na porta ${PORT}`);
