@@ -18,6 +18,7 @@ function connection() {
       schema = db;
       return schema;
   })
+  .catch((err) => console.error(err.message));
 }
 
 module.exports = connection;
