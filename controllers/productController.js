@@ -14,7 +14,17 @@ const createProduct = async (req, res) => {
   return res.status(201).send('OK');
 }
 
+const deleteProductById = async (req, res) => {
+  const { id } = req.body;
+  const deleteProduct = await productService.deleteProductById(id);
+  if (deleteProduct.message) {
+    return res.status(deleteProduct.status).json({ message: deleteProduct.message })
+  }
+  return res.status(200).send('OK');
+}
+
 module.exports = {
   getAll,
   createProduct,
+  deleteProductById
 }

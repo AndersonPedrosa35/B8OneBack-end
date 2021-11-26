@@ -10,7 +10,13 @@ const createProduct = async (body) => {
   return data.insertOne(body);
 }
 
+const deleteProductById = async (id) => {
+  const data = await connection().then((db) => db.collection('products'));
+  return data.deleteOne({});
+}
+
 module.exports = {
   getAll,
   createProduct,
+  deleteProductById,
 }

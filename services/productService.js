@@ -40,7 +40,14 @@ const createProduct = async (body) => {
   return newProduct;
 }
 
+const deleteProductById = async (id) => {
+  if (!id || id.length < 15) return { status: 404, message: '"id" is invalid' }
+  const deleleProduct = await productModel.deleteProductById(id);
+  return deleleProduct;
+}
+
 module.exports = {
   getAll,
   createProduct,
+  deleteProductById
 }
