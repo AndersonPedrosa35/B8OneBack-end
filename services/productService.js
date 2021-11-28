@@ -37,7 +37,8 @@ const createProduct = async (body) => {
   if (validText.message) return validText;
   if (validPrices.message) return validPrices;
   const newProduct = await productModel.createProduct(body);
-  return newProduct;
+  const findAll = await getAll();
+  return findAll;
 }
 
 const deleteProductById = async (id) => {
