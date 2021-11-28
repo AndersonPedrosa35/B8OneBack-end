@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
   return res.status(200).send('Estamos conectados');
 });
 
+app.use(express.static('uploads'));
+
 app.delete('/products', productController.deleteProductById)
 
 app.get('/products', productController.getAll);
