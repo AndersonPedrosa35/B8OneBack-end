@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const { PORT } = process.env;
+const PORT = process.env?.PORT;
 
 app.get('/', (req, res) => {
   return res.status(200).send('Estamos conectados');
@@ -22,7 +22,7 @@ app.get('/products', productController.getAll);
 
 app.post('/products', productController.createProduct);
 
-app.listen(PORT, () => {
-  console.log(`Online na porta ${PORT}`);
+app.listen(PORT ? PORT : 3001, () => {
+  console.log(`Online na porta ${PORT ? PORT : 3001}`);
 })
 
