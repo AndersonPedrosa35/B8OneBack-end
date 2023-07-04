@@ -10,7 +10,7 @@ app.use(cors());
 const PORT = process.env?.PORT;
 
 app.get('/', (req, res) => {
-  return res.status(200).send('Estamos conectados');
+  return res.status(200).json({message: 'Estamos conectados'});
 });
 
 // app.delete('/products', productController.deleteProductById)
