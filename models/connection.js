@@ -1,24 +1,24 @@
-// require('dotenv').config();
-// const { MongoClient } = require('mongodb');
+require('dotenv').config();
+const { MongoClient } = require('mongodb');
 
-// let schema = null;
+let schema = null;
 
-// const OPTIONS = {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }
+const OPTIONS = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
 
-// const { DB_NAME, DB_URL } = process.env
+const { DB_NAME, DB_URL } = process.env
 
-// function connection() {
-//   return schema ? Promise.resolve(schema) :
-//     MongoClient.connect(DB_URL, OPTIONS)
-//     .then((conn) => conn.db(DB_NAME))
-//     .then((db) => {
-//       schema = db;
-//       return schema;
-//   })
-//   .catch((err) => console.error(err.message));
-// }
+function connection() {
+  return schema ? Promise.resolve(schema) :
+    MongoClient.connect(DB_URL, OPTIONS)
+    .then((conn) => conn.db(DB_NAME))
+    .then((db) => {
+      schema = db;
+      return schema;
+  })
+  .catch((err) => console.error(err.message));
+}
 
-// module.exports = connection;
+module.exports = connection;
