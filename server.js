@@ -1,8 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
-const productController = require('./controllers/productController');
+// const productController = require('./controllers/productController');
 const app = express();
 
 app.use(express.json());
@@ -14,13 +13,11 @@ app.get('/', (req, res) => {
   return res.status(200).send('Estamos conectados');
 });
 
-app.use('/images', express.static(path.join(__dirname, 'uploads')));
+// app.delete('/products', productController.deleteProductById)
 
-app.delete('/products', productController.deleteProductById)
+// app.get('/products', productController.getAll);
 
-app.get('/products', productController.getAll);
-
-app.post('/products', productController.createProduct);
+// app.post('/products', productController.createProduct);
 
 app.listen(PORT ? PORT : 3001, () => {
   console.log(`Online na porta ${PORT ? PORT : 3001}`);
