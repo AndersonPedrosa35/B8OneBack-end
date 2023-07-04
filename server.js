@@ -4,6 +4,8 @@ const cors = require('cors');
 const path = require('path');
 const productController = require('./controllers/productController');
 
+console.log(process.env, 'VARIAVEIS')
+
 const app = express();
 
 app.use(express.json());
