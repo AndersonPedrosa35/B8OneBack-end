@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const productController = require('./controllers/productController');
+
 const app = express();
 
 app.use(express.json());
@@ -16,11 +17,10 @@ app.get('/', (req, res) => {
 
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
 
-app.delete('/products', productController.deleteProductById)
-
-app.get('/products', productController.getAll);
-
-app.post('/products', productController.createProduct);
+app.get('/products', productController.getAll)
+  .get('/products/:id', productController.getById)
+  .post('/products', productController.createProduct)
+  .delete('/products/:id', productController.deleteProductById)
 
 app.listen(PORT, () => {
   console.log(`Online na porta ${PORT}`);

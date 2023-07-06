@@ -5,6 +5,11 @@ const getAll = async () => {
   return products;
 }
 
+const getById = async (id) => {
+  const product = await productModel.getById(id);
+  return product;
+}
+
 const isValidPrices = ({ price, promotion }) => {
   if (!price || price.length === 0 || price === 0) { 
     return { status: 404, message: '"price" is required' } 
@@ -50,5 +55,6 @@ const deleteProductById = async (id) => {
 module.exports = {
   getAll,
   createProduct,
-  deleteProductById
+  deleteProductById,
+  getById
 }
