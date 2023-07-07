@@ -5,6 +5,12 @@ const getAll = async (req, res) => {
   return res.status(200).json({ result: products });
 }
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const product = await productService.getById(id);
+  return res.status(200).json({ result: product });
+}
+
 const createProduct = async (req, res) => {
   const newProduct = await productService.createProduct(req.body);
   if (newProduct.message) {
@@ -14,7 +20,7 @@ const createProduct = async (req, res) => {
 }
 
 const deleteProductById = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   const deleteProduct = await productService.deleteProductById(id);
   if (deleteProduct.message) {
     return res.status(deleteProduct.status).json({ message: deleteProduct.message })
@@ -25,5 +31,6 @@ const deleteProductById = async (req, res) => {
 module.exports = {
   getAll,
   createProduct,
-  deleteProductById
+  deleteProductById,
+  getById
 }

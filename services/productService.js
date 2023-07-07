@@ -5,6 +5,11 @@ const getAll = async () => {
   return products;
 }
 
+const getById = async (id) => {
+  const product = await productModel.getById(id);
+  return product;
+}
+
 const isValidPrices = ({ price, promotion }) => {
   if (!price || price.length === 0 || price === 0) { 
     return { status: 404, message: '"price" is required' } 
@@ -42,7 +47,9 @@ const createProduct = async (body) => {
 }
 
 const deleteProductById = async (id) => {
-  if (!id || id.length < 15) return { status: 404, message: '"id" is invalid' }
+  if (!id || id.length < 15) {
+    return { status: 404, message: '"id" is invalid' }
+  }
   const deleleProduct = await productModel.deleteProductById(id);
   return deleleProduct;
 }
@@ -50,5 +57,6 @@ const deleteProductById = async (id) => {
 module.exports = {
   getAll,
   createProduct,
-  deleteProductById
+  deleteProductById,
+  getById
 }

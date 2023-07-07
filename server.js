@@ -4,14 +4,12 @@ const cors = require('cors');
 const path = require('path');
 const productController = require('./controllers/productController');
 
-console.log(process.env, 'VARIAVEIS')
-
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-const { PORT } = process.env;
+const PORT = process.env?.PORT || 3000;
 
 app.get('/', (req, res) => {
   return res.status(200).send('Estamos conectados');
@@ -19,11 +17,10 @@ app.get('/', (req, res) => {
 
 app.use('/images', express.static(path.join(__dirname, 'uploads')));
 
-app.delete('/products', productController.deleteProductById)
-
-app.get('/products', productController.getAll);
-
-app.post('/products', productController.createProduct);
+app.get('/products', productController.getAll)
+  .get('/products/:id', productController.getById)
+  .post('/products', productController.createProduct)
+  .delete('/products/:id', productController.deleteProductById)
 
 app.listen(PORT, () => {
   console.log(`Online na porta ${PORT}`);
