@@ -1,8 +1,13 @@
 # Bem vindo ao repositório B8OneBack-end
 ## O que foi desenvolvido ?
  O objetivo era criar e enviar produtos para o frontend do projeto, as duas rotas do frontend onde acontece a lógica do frontend em conjunto com o backend são :
-  ``` https://b8-one-front-end.vercel.app/ ```
-  ``` https://b8-one-front-end.vercel.app/create ```
+  ``` https://mini-ecommerce-nextjs-beryl.vercel.app/ ```
+  ``` https://mini-ecommerce-nextjs-beryl.vercel.app/create ```
+  ``` https://mini-ecommerce-nextjs-beryl.vercel.app/delete ```
+  
+  ## Warning ##
+  - A rota ```https://mini-ecommerce-nextjs-beryl.vercel.app/delete``` do app está em fase de testes
+  
 
 ## Ferramentas 
   - Utilização do Express para o servidor
@@ -12,7 +17,7 @@
   - Utilização de ALGUMAS regras do SOLID, retirando somente os padrão para porgramação orientada a objetos
 
 ## Iniciar o projeto
-  Entre no terminal, e vá até o diretório que vc quer que esteja este projeto, digite git clone e a url desse repositório (https://github.com/AndersonPedrosa35/B8OneFront-end), assim que carregar, entre no diretório do projeto e digite ```npm install``` para baixar e carregar as dependências do projeto.
+  Entre no terminal, e vá até o diretório que vc quer que esteja este projeto, digite git clone e a url desse repositório [https://github.com/AndersonPedrosa35/MiniEcommerce-FrontEnd](https://github.com/AndersonPedrosa35/MiniEcommerce-FrontEnd), assim que carregar, entre no diretório do projeto e digite ```npm install``` para baixar e carregar as dependências do projeto.
   
 Entre no diretório do projeto, e digite ```yarn start``` ou ```npm start```
 Então o projeto será carregado na porta 3000 da sua rede local(localhost);
@@ -26,4 +31,4 @@ Então o projeto será carregado na porta 3000 da sua rede local(localhost);
  Então o projeto de Backend será carregado na porta que você especificou no .env da sua rede local(localhost);
 
 ## Deploy
-https://b8-one-front-end.vercel.app/
+https://spotless-cod-houndstooth.cyclic.app/
